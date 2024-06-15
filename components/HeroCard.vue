@@ -2,7 +2,7 @@ p
 <template>
   <div class="flex relative min-h-96 w-full">
     <div class="w-full relative pl-24 bg-black items-center">
-      <div class="absolute w-2/4 left-24 top-1/4 z-10 font-reddit space-y-3">
+      <div class="absolute w-2/4 left-24 top-1/4 z-10 space-y-3">
         <img class="max-h-24" :src="heroItem.logo" :alt="heroItem.title" />
         <div class="flex items-center gap-4">
           <Ratings :ratings="heroItem.ratings" />

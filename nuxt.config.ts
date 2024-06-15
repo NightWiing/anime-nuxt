@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ['~/assets/css/main.css', 'swiper/css', 'swiper/css/pagination'],
 
-  modules: ['@nuxtjs/google-fonts', '@pinia/nuxt', 'nuxt-swiper'],
+  modules: ['@nuxtjs/google-fonts', 'nuxt-swiper'],
 
   runtimeConfig: {
     public: {
