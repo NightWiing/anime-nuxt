@@ -4,6 +4,9 @@ export default function () {
   const searchResults = ref([]);
   const isLoading = ref(false);
   const isNoResultsFound = ref(false);
+  const paginationDetails = ref(null);
+  const currentPage = ref(1);
+  const limit = ref(20);
 
   const deBounce = (func) => {
     let timeout;
@@ -19,11 +22,18 @@ export default function () {
 
   const search = async (search) => {
     try {
+      paginationDetails.value = null;
+      currentPage.value = 1;
       isLoading.value = true;
-      const { data } = await useFetch(`${url}/anime`, {
-        query: { type: 'tv', q: search, page: 1 },
+      const { data, pagination } = await $fetch(`${url}/anime`, {
+        query: {
+          q: search,
+          page: currentPage.value,
+          limit: limit.value,
+        },
       });
-      searchResults.value = data.value.data;
+      searchResults.value = data;
+      paginationDetails.value = pagination;
       if (!searchResults.value.length) isNoResultsFound.value = true;
       isLoading.value = false;
     } catch (error) {
@@ -34,5 +44,42 @@ export default function () {
 
   const fetchSearchResults = deBounce(search);
 
-  return { fetchSearchResults, searchResults, isLoading, isNoResultsFound };
+  const $reset = () => {
+    setTimeout(() => {
+      isNoResultsFound.value = false;
+      searchResults.value = [];
+      paginationDetails.value = null;
+    }, 600);
+  };
+
+  const loadMoreSearchResults = async (search) => {
+    try {
+      currentPage.value++;
+      const { data, pagination } = await $fetch(`${url}/anime`, {
+        query: {
+          q: search,
+          page: currentPage.value,
+          limit: limit.value,
+        },
+      });
+      data.forEach((element) => {
+        searchResults.value.push(element);
+      });
+      paginationDetails.value = pagination;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return {
+    fetchSearchResults,
+    loadMoreSearchResults,
+    searchResults,
+    isLoading,
+    isNoResultsFound,
+    currentPage,
+    limit,
+    paginationDetails,
+    $reset,
+  };
 }

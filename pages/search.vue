@@ -15,7 +15,7 @@
     </div>
 
     <div v-if="isLoading" class="flex justify-center items-center">
-      <BaseLoader class="size-24" />
+      <BaseLoader class="size-24" fill="#06b6d4" />
     </div>
     <template v-else>
       <div
@@ -30,22 +30,45 @@
         </template>
       </div>
     </template>
+    <div
+      v-if="paginationDetails && paginationDetails.has_next_page"
+      class="flex justify-center mt-4 mb-8"
+    >
+      <button
+        class="bg-cyan-500 cursor-pointer py-2 px-4 flex items-center text-sm text-white rounded-full"
+        @click="loadMore"
+      >
+        <label class="cursor-pointer">Load More</label>
+        <BaseSpinnerLoader v-if="isLoadingMore" class="size-4 ml-2" />
+      </button>
+    </div>
   </div>
 </template>
 
 <script setup>
-const { fetchSearchResults, searchResults, isLoading, isNoResultsFound } =
-  useSearch();
+const {
+  fetchSearchResults,
+  loadMoreSearchResults,
+  searchResults,
+  isLoading,
+  isNoResultsFound,
+  $reset,
+} = useSearch();
 
 const searchParam = ref('');
+const isLoadingMore = ref(false);
 
 const getSearchResultsOnInput = (event) => {
-  console.log(event.target.value.length);
   if (event.target.value.length) {
     fetchSearchResults(event.target.value);
   } else {
-    isNoResultsFound.value = false;
-    searchResults.value = [];
+    $reset();
   }
+};
+
+const loadMore = async () => {
+  isLoadingMore.value = true;
+  await loadMoreSearchResults(searchParam.value);
+  isLoadingMore.value = false;
 };
 </script>

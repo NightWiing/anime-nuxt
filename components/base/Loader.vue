@@ -1,44 +1,62 @@
 <template>
-  <svg
-    version="1.1"
-    id="L5"
-    xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    x="0px"
-    y="0px"
-    viewBox="0 0 100 100"
-    enable-background="new 0 0 0 0"
-    xml:space="preserve"
-  >
-    <circle fill="#06b6d4" stroke="none" cx="6" cy="50" r="6">
-      <animateTransform
-        attributeName="transform"
-        dur="1s"
-        type="translate"
-        values="0 15 ; 0 -15; 0 15"
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <circle
+      :fill="fill"
+      :stroke="fill"
+      stroke-width="15"
+      r="15"
+      cx="40"
+      cy="100"
+    >
+      <animate
+        attributeName="opacity"
+        calcMode="spline"
+        dur="2"
+        values="1;0;1;"
+        keySplines=".5 0 .5 1;.5 0 .5 1"
         repeatCount="indefinite"
-        begin="0.1"
-      />
+        begin="-.4"
+      ></animate>
     </circle>
-    <circle fill="#06b6d4" stroke="none" cx="30" cy="50" r="6">
-      <animateTransform
-        attributeName="transform"
-        dur="1s"
-        type="translate"
-        values="0 10 ; 0 -10; 0 10"
+    <circle
+      :fill="fill"
+      :stroke="fill"
+      stroke-width="15"
+      r="15"
+      cx="100"
+      cy="100"
+    >
+      <animate
+        attributeName="opacity"
+        calcMode="spline"
+        dur="2"
+        values="1;0;1;"
+        keySplines=".5 0 .5 1;.5 0 .5 1"
         repeatCount="indefinite"
-        begin="0.2"
-      />
+        begin="-.2"
+      ></animate>
     </circle>
-    <circle fill="#06b6d4" stroke="none" cx="54" cy="50" r="6">
-      <animateTransform
-        attributeName="transform"
-        dur="1s"
-        type="translate"
-        values="0 5 ; 0 -5; 0 5"
+    <circle
+      :fill="fill"
+      :stroke="fill"
+      stroke-width="15"
+      r="15"
+      cx="160"
+      cy="100"
+    >
+      <animate
+        attributeName="opacity"
+        calcMode="spline"
+        dur="2"
+        values="1;0;1;"
+        keySplines=".5 0 .5 1;.5 0 .5 1"
         repeatCount="indefinite"
-        begin="0.3"
-      />
+        begin="0"
+      ></animate>
     </circle>
   </svg>
 </template>
+
+<script setup>
+defineProps(['fill']);
+</script>
