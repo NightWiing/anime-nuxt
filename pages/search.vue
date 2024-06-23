@@ -52,6 +52,7 @@ const {
   searchResults,
   isLoading,
   isNoResultsFound,
+  paginationDetails,
   $reset,
 } = useSearch();
 
