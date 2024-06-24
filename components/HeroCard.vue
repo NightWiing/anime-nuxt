@@ -1,4 +1,3 @@
-p
 <template>
   <div class="flex relative min-h-96 w-full">
     <div class="w-full relative pl-24 bg-black items-center">

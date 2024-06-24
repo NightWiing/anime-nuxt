@@ -24,9 +24,22 @@
       >
         No results found, try another keyword...
       </div>
-      <div v-else class="grid grid-cols-5 gap-x-2 gap-y-6 p-8">
+      <div
+        v-else
+        class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-2 gap-y-6 p-8 transition-all duration-500"
+      >
         <template v-for="(item, index) in searchResults" :key="index">
-          <ContentCard :item="item" />
+          <Transition
+            appear
+            enter-active-class="transition duration-1000 ease-out"
+            enter-from-class="transform translate-y-8 opacity-0"
+            enter-to-class="transform translate-y-0 opacity-100"
+            leave-active-class="transition duration-1000 ease-in"
+            leave-from-class="transform translate-y-0 opacity-100"
+            leave-to-class="transform translate-y-8 opacity-0"
+          >
+            <ContentCard :item="item" />
+          </Transition>
         </template>
       </div>
     </template>
