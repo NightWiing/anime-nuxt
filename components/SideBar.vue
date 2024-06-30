@@ -18,12 +18,24 @@
 <script setup>
 const IconHome = resolveComponent('IconHome');
 const IconSearch = resolveComponent('IconSearch');
+const IconTv = resolveComponent('IconTv');
+const IconMovie = resolveComponent('IconMovie');
 
 const links = [
   {
     label: 'Home',
     icon: IconHome,
     path: '/',
+  },
+  {
+    label: 'Shows',
+    icon: IconTv,
+    path: '/shows',
+  },
+  {
+    label: 'Movies',
+    icon: IconMovie,
+    path: '/movies',
   },
   {
     label: 'Search',

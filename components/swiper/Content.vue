@@ -1,7 +1,7 @@
 <template>
   <Swiper
     :modules="[SwiperNavigation]"
-    :slides-per-view="4.5"
+    :slides-per-view="5.5"
     :space-between="10"
     :auto-height="true"
   >

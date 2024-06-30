@@ -1,5 +1,5 @@
 <template>
-  <div class="font-reddit">
+  <div>
     <input
       type="text"
       placeholder="Search..."

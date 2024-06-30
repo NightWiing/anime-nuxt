@@ -1,10 +1,12 @@
 <template>
   <div class="my-24 ml-24 group">
-    <h3 class="text-2xl font-semibold text-gray-400 mb-6">Popular</h3>
+    <h3 class="text-2xl font-semibold text-gray-400 mb-6">
+      <slot name="header" />
+    </h3>
     <SwiperContent
-      v-if="popular && popular.length"
+      v-if="contentList && contentList.length"
       class="!overflow-visible"
-      :carousel-items="popular"
+      :carousel-items="contentList"
     >
       <template #carousel="{ item }">
         <ContentCard :item="item" />
@@ -20,14 +22,24 @@
 </template>
 
 <script setup>
+const props = defineProps({
+  filter: {
+    type: String,
+    required: true,
+  },
+  type: {
+    type: String,
+    required: true,
+  },
+});
 const { fetchTopWatchList } = useData();
 
-const popular = ref([]);
+const contentList = ref([]);
 
-popular.value = await fetchTopWatchList({
-  filter: 'bypopularity',
-  type: 'tv',
+contentList.value = await fetchTopWatchList({
+  filter: props.filter,
+  type: props.type,
   page: 1,
-  limit: 10,
+  limit: 15,
 });
 </script>

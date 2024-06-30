@@ -1,5 +1,5 @@
 <template>
-  <div class="relative">
+  <div>
     <!-- Hero Section -->
     <SwiperHero v-show="$route.name !== 'search'" />
     <div
@@ -7,19 +7,19 @@
       class="absolute h-20 w-full -left-1 bg-gradient-to-b from-black"
     ></div>
 
-    <!-- popular shows  -->
-    <AnimeContent filter="bypopularity" type="tv">
-      <template #header>Popular shows</template>
-    </AnimeContent>
-
     <!-- popular movies -->
     <AnimeContent filter="bypopularity" type="movie">
       <template #header>Popular movies</template>
     </AnimeContent>
 
-    <!-- popular tv special -->
-    <AnimeContent filter="bypopularity" type="tv_special">
-      <template #header>Popular tv special</template>
+    <!-- airing movies -->
+    <AnimeContent filter="airing" type="movie">
+      <template #header>Airing movies</template>
+    </AnimeContent>
+
+    <!-- upcoming movies -->
+    <AnimeContent filter="upcoming" type="movie">
+      <template #header>Upcoming movies</template>
     </AnimeContent>
   </div>
 </template>
