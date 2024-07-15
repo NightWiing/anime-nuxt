@@ -38,7 +38,9 @@
             leave-from-class="transform translate-y-0 opacity-100"
             leave-to-class="transform translate-y-8 opacity-0"
           >
-            <ContentCard :item="item" />
+            <nuxt-link :to="`/details/${item.mal_id}`">
+              <ContentCard :item="item" />
+            </nuxt-link>
           </Transition>
         </template>
       </div>

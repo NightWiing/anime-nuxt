@@ -4,13 +4,16 @@
     :slides-per-view="5.5"
     :space-between="10"
     :auto-height="true"
+    :loop="true"
   >
     <SwiperSlide
       class="max-w-64"
       v-for="(item, index) in carouselItems"
       :key="index"
     >
-      <slot name="carousel" :item="item" />
+      <nuxt-link :to="`/details/${item.mal_id}`">
+        <slot name="carousel" :item="item" />
+      </nuxt-link>
     </SwiperSlide>
     <SwiperControls />
   </Swiper>
