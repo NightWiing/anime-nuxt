@@ -19,7 +19,9 @@
             width="400"
             height="600"
             :src="details.images.jpg && details.images.jpg.large_image_url"
-            :alt="details.title"
+            :alt="
+              details.title_english || details.title || details.title_japanese
+            "
           />
         </div>
         <div class="w-3/5 text-white">

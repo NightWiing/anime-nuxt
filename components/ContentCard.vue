@@ -7,6 +7,7 @@
       loading="eager"
       height="600"
       width="400"
+      :alt="item.title_english || item.title_japanese || item.title"
       :src="item.images && item.images.jpg && item.images.jpg.large_image_url"
     />
   </div>
