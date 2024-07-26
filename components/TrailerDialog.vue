@@ -5,13 +5,13 @@
   >
     <button
       title="trailer"
-      class="absolute right-4 top-4 text-white bg-gray-900 hover:bg-gray-900/60 transition-all delay-75 duration-100 ease-in-out p-3 rounded-full flex items-center"
+      class="absolute z-50 right-2 md:right-4 top-2 md:top-4 text-white bg-gray-900 hover:bg-gray-900/60 transition-all delay-75 duration-100 ease-in-out p-3 rounded-full flex items-center"
       @click="closeDialog"
     >
       <IconClose class="size-5" />
     </button>
     <div
-      class="z-50 max-w-7xl flex justify-center items-center bg-black fixed inset-0 m-32"
+      class="z-10 w-auto md:max-w-7xl flex justify-center items-center bg-black fixed inset-0 m-6 md:m-32"
     >
       <iframe
         v-if="link"

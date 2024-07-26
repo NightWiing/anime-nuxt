@@ -8,8 +8,8 @@
       @input="getSearchResultsOnInput($event)"
     />
 
-    <div v-if="!searchParam.length" class="flex justify-center p-8">
-      <p class="text-2xl font-medium text-white">
+    <div v-if="!searchParam.length" class="flex justify-center p-4 md:p-8">
+      <p class="md:text-2xl font-medium text-white">
         Search for your favorite anime...
       </p>
     </div>
@@ -20,13 +20,13 @@
     <template v-else>
       <div
         v-if="isNoResultsFound"
-        class="flex justify-center text-white font-medium text-xl mt-10"
+        class="flex justify-center text-white font-medium md:text-xl mt-5 md:mt-10"
       >
         No results found, try another keyword...
       </div>
       <div
         v-else
-        class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-2 gap-y-6 p-8 transition-all duration-500"
+        class="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-2 gap-y-3 md:gap-y-6 p-4 md:p-8 transition-all duration-500"
       >
         <template v-for="(item, index) in searchResults" :key="index">
           <Transition

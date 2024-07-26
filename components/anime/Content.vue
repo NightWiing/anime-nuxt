@@ -1,6 +1,8 @@
 <template>
-  <div class="my-24 ml-24 group">
-    <h3 class="text-2xl font-semibold text-gray-400 mb-6">
+  <div class="my-12 md:my-24 ml-8 md:ml-24 group">
+    <h3
+      class="md:text-2xl font-medium md:font-semibold text-gray-400 mb-3 md:mb-6"
+    >
       <slot name="header" />
     </h3>
     <SwiperContent
@@ -13,7 +15,7 @@
       </template>
     </SwiperContent>
     <div class="flex justify-center" v-else>
-      <p class="text-gray-200">
+      <p class="text-gray-200 text-sm md:text-base">
         No data available or an issue while fetching data try to reload the
         page.
       </p>
@@ -40,6 +42,6 @@ contentList.value = await fetchTopWatchList({
   filter: props.filter,
   type: props.type,
   page: 1,
-  limit: 15,
+  limit: 25,
 });
 </script>

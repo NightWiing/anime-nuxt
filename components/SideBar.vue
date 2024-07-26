@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col justify-evenly bg-black/60 p-5 border-r border-r-white/10"
+    class="flex md:flex-col justify-evenly bg-black/60 px-0 py-5 md:px-5 border-t border-t-white/10 md:border-r md:border-r-white/10"
   >
     <template v-for="link in links" :key="link.label">
       <nuxt-link
@@ -9,7 +9,7 @@
         class="text-white hover:text-cyan-300"
         :to="link.path"
       >
-        <component class="size-9" :is="link.icon" />
+        <component class="size-8 md:size-9" :is="link.icon" />
       </nuxt-link>
     </template>
   </div>

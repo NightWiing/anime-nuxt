@@ -1,7 +1,22 @@
 <template>
   <Swiper
     :modules="[SwiperNavigation]"
-    :slides-per-view="5.5"
+    :breakpoints="{
+      320: {
+        slidesPerView: 2.5,
+      },
+      // when window width is >= 480px
+      480: {
+        slidesPerView: 3,
+      },
+      // when window width is >= 640px
+      640: {
+        slidesPerView: 4,
+      },
+      1024: {
+        slidesPerView: 5.5,
+      },
+    }"
     :space-between="10"
     :auto-height="true"
     :loop="true"
