@@ -79,7 +79,7 @@ const searchParam = ref('');
 const isLoadingMore = ref(false);
 
 const getSearchResultsOnInput = (event) => {
-  if (event.target.value.length) {
+  if (event.target.value.length > 2) {
     fetchSearchResults(event.target.value);
   } else {
     $reset();

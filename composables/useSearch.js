@@ -16,7 +16,7 @@ export default function () {
 
       timeout = setTimeout(() => {
         func.apply(this, args);
-      }, 500);
+      }, 300);
     };
   };
 
@@ -45,11 +45,9 @@ export default function () {
   const fetchSearchResults = deBounce(search);
 
   const $reset = () => {
-    setTimeout(() => {
-      isNoResultsFound.value = false;
-      searchResults.value = [];
-      paginationDetails.value = null;
-    }, 600);
+    isNoResultsFound.value = false;
+    searchResults.value = [];
+    paginationDetails.value = null;
   };
 
   const loadMoreSearchResults = async (search) => {
