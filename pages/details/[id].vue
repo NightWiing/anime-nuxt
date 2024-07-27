@@ -119,6 +119,7 @@
         </div>
       </div>
       <DetailsCharacters :characters="characters" />
+      <Footer />
     </div>
   </Transition>
 </template>
@@ -132,6 +133,12 @@ const isOpen = ref(false);
 const currentLink = ref('');
 const header = ref(null);
 
+useHead({
+  title: details.value
+    ? `${details.value.title_english}`
+    : 'Details | Nuxt Anime',
+});
+
 details.value = await fetchDetails(route.params.id);
 
 characters.value = await fetchCharacters(route.params.id);
@@ -141,12 +148,12 @@ const openTrailerDialog = () => {
   currentLink.value = details.value.trailer.embed_url;
   isOpen.value = true;
   const myElement = document.getElementById('default');
-  myElement.style.overflow = 'hidden';
+  myElement.style.overflowY = 'hidden';
 };
 
 const resetDialog = () => {
   currentLink.value = '';
   const myElement = document.getElementById('default');
-  myElement.style.overflow = 'auto';
+  myElement.style.overflowY = 'auto';
 };
 </script>

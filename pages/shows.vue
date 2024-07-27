@@ -21,5 +21,14 @@
     <AnimeContent filter="upcoming" type="tv">
       <template #header>Upcoming shows</template>
     </AnimeContent>
+
+    <Footer />
   </div>
 </template>
+
+<script setup>
+useHead({
+  title: 'Anime shows | Nuxt Anime',
+  meta: [{ name: 'description', content: 'Top shows' }],
+});
+</script>

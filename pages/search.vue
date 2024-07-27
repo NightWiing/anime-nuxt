@@ -47,7 +47,7 @@
     </template>
     <div
       v-if="paginationDetails && paginationDetails.has_next_page"
-      class="flex justify-center mt-4 mb-8"
+      class="flex justify-center mt-4 mb-24 md:mb-8"
     >
       <button
         class="bg-cyan-500 cursor-pointer py-2 px-4 flex items-center text-sm text-white rounded-full"
@@ -61,6 +61,10 @@
 </template>
 
 <script setup>
+useHead({
+  title: 'Search | Nuxt Anime',
+});
+
 const {
   fetchSearchResults,
   loadMoreSearchResults,

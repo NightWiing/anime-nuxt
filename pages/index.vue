@@ -20,5 +20,14 @@
     <AnimeContent filter="bypopularity" type="tv_special">
       <template #header>Popular tv special</template>
     </AnimeContent>
+
+    <Footer />
   </div>
 </template>
+
+<script setup>
+useHead({
+  title: 'Home | Nuxt Anime',
+  meta: [{ name: 'description', content: 'Anime list' }],
+});
+</script>

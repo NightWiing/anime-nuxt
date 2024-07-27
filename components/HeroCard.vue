@@ -12,7 +12,7 @@
       >
         <div
           v-show="heroItem"
-          class="absolute w-full md:w-2/4 bottom-0 md:left-24 top-1/4 z-10 space-y-3"
+          class="absolute w-full md:w-2/4 bottom-0 md:left-16 top-1/4 z-10 space-y-3"
         >
           <img
             class="max-h-12 md:max-h-24 transition-transform scale-95 hover:scale-100 delay-75 duration-150"

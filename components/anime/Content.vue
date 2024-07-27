@@ -1,5 +1,5 @@
 <template>
-  <div class="my-12 md:my-24 ml-8 md:ml-24 group">
+  <div class="my-12 md:my-24 ml-8 md:ml-16 group">
     <h3
       class="md:text-2xl font-medium md:font-semibold text-gray-400 mb-3 md:mb-6"
     >

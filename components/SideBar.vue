@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex md:flex-col justify-evenly bg-black/60 px-0 py-5 md:px-5 border-t border-t-white/10 md:border-r md:border-r-white/10"
+    class="fixed bottom-0 z-10 w-full md:w-auto md:relative flex md:flex-col justify-evenly bg-black md:bg-black/60 px-0 py-5 md:px-5 border-t border-t-white/10 md:border-r md:border-r-white/10"
   >
     <template v-for="link in links" :key="link.label">
       <nuxt-link
