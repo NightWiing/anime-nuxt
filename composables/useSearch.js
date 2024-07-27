@@ -22,6 +22,10 @@ export default function () {
 
   const search = async (search) => {
     try {
+      if (!search.length) {
+        $reset();
+        return;
+      }
       paginationDetails.value = null;
       currentPage.value = 1;
       isLoading.value = true;
