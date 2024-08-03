@@ -15,33 +15,37 @@
         {{ details.title_english || details.title || details.title_japanese }}
       </h1>
       <div
-        class="grid md:grid-flow-col md:justify-stretch gap-4 md:gap-8 md:mt-8 mx-8 md:mx-24"
+        class="flex flex-col md:flex-row md:gap-8 lg:gap-16 md:mt-8 mx-8 lg:mx-16 mb-10"
       >
-        <div class="aspect-[10/16]">
+        <div class="aspect-[10/16] w-full lg:w-1/4">
           <img
             class="rounded-md w-full md:max-w-80"
             width="400"
             height="600"
-            :src="details.images.jpg && details.images.jpg.large_image_url"
+            :src="
+              details.images &&
+              details.images.jpg &&
+              details.images.jpg.large_image_url
+            "
             :alt="
               details.title_english || details.title || details.title_japanese
             "
           />
         </div>
-        <div class="text-white">
+        <div class="text-white w-full lg:w-3/4">
           <h3 class="text-3xl font-medium mb-3">Overview</h3>
           <p class="text-sm">
-            {{ details.synopsis.split('[')[0] }}
+            {{ details.synopsis?.split('[')[0] }}
           </p>
 
           <!-- Information -->
           <div
-            class="grid grid-cols-1 md:grid-cols-2 gap-x-0 md:gap-x-4 gap-y-8 md:gap-y-6 mt-12"
+            class="grid grid-cols-1 lg:grid-cols-2 gap-x-0 md:gap-x-4 gap-y-8 md:gap-y-6 mt-12"
           >
             <div class="flex items-center gap-4">
               <h3 class="text-gray-300 text-sm">Aired</h3>
               <p class="text-sm">
-                {{ details.aired.string.split('to')[0] }}
+                {{ details.aired?.string?.split('to')[0] }}
               </p>
             </div>
             <div
@@ -63,7 +67,7 @@
             >
               <h3 class="text-gray-300 text-sm">Streaming</h3>
               <a
-                v-for="stream in details.streaming.slice(0, 3)"
+                v-for="stream in details.streaming?.slice(0, 3)"
                 :key="stream.name"
                 :href="stream.url"
                 target="_blank"
@@ -107,7 +111,7 @@
             >
               <h3 class="text-gray-300 text-sm">Links</h3>
               <a
-                v-for="link in details.external.slice(0, 3)"
+                v-for="link in details.external?.slice(0, 3)"
                 :key="link.name"
                 :href="link.url"
                 target="_blank"
