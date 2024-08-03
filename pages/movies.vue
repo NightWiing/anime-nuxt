@@ -7,14 +7,14 @@
       class="absolute h-20 w-full -left-1 bg-gradient-to-b from-black"
     ></div>
 
-    <!-- popular movies -->
-    <AnimeContent filter="bypopularity" type="movie">
-      <template #header>Popular movies</template>
-    </AnimeContent>
-
     <!-- airing movies -->
     <AnimeContent filter="airing" type="movie">
       <template #header>Airing movies</template>
+    </AnimeContent>
+
+    <!-- popular movies -->
+    <AnimeContent filter="bypopularity" type="movie">
+      <template #header>Popular movies</template>
     </AnimeContent>
 
     <!-- upcoming movies -->
