@@ -9,17 +9,23 @@
 
     <!-- airing movies -->
     <AnimeContent filter="airing" type="movie">
-      <template #header>Airing movies</template>
+      <template #header>
+        <BaseHeader3>Airing movies</BaseHeader3>
+      </template>
     </AnimeContent>
 
     <!-- popular movies -->
     <AnimeContent filter="bypopularity" type="movie">
-      <template #header>Popular movies</template>
+      <template #header>
+        <BaseHeader3>Popular movies</BaseHeader3>
+      </template>
     </AnimeContent>
 
     <!-- upcoming movies -->
     <AnimeContent filter="upcoming" type="movie">
-      <template #header>Upcoming movies</template>
+      <template #header>
+        <BaseHeader3>Upcoming movies</BaseHeader3>
+      </template>
     </AnimeContent>
 
     <Footer />

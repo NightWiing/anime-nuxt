@@ -1,9 +1,8 @@
 <template>
   <div class="my-12 md:my-24 ml-8 md:ml-16 group">
     <div class="flex gap-2 md:gap-5 items-center mb-3 md:mb-6">
-      <h3 class="md:text-2xl font-medium md:font-semibold text-gray-400">
-        <slot name="header" />
-      </h3>
+      <slot name="header" />
+
       <nuxt-link
         :to="`/anime/${type}/${filter}`"
         class="text-cyan-500 hover:text-cyan-500/70"
@@ -20,7 +19,9 @@
       :carousel-items="contentList"
     >
       <template #carousel="{ item }">
-        <ContentCard :item="item" />
+        <nuxt-link :to="`/details/${item.mal_id}`">
+          <ContentCard :item="item" />
+        </nuxt-link>
       </template>
     </SwiperContent>
     <div class="flex justify-center" v-else>

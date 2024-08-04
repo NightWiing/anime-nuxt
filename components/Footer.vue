@@ -9,7 +9,7 @@
     <div class="flex items-center gap-2">
       <label class="text-xs">Data provided by</label>
       <a href="https://jikan.moe/" target="_blank">
-        <img src="/assets/jikan.png" class="size-8" />
+        <img src="/assets/jikan.png" alt="jikan" class="size-8" />
       </a>
     </div>
     <p class="text-xs">

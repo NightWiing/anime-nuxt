@@ -42,7 +42,6 @@ export default function () {
         query: {
           filter: route.params.filter,
           type: route.params.type,
-          rating: 'g',
           sfw: false,
           page: currentPage.value,
           limit: limit.value,

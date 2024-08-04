@@ -4,7 +4,7 @@
 
     <SwiperContent class="!overflow-visible" :carousel-items="characters">
       <template #carousel="{ item }">
-        <DetailsCharacterCard :character="item.character" />
+        <DetailsCharacterCard :character="item" />
       </template>
     </SwiperContent>
   </div>
