@@ -12,45 +12,43 @@
       <h1
         class="text-white text-center text-2xl md:text-5xl my-6 font-semibold"
       >
-        {{ details.title_english || details.title || details.title_japanese }}
+        {{ mainTitle }}
       </h1>
       <div
-        class="grid md:grid-flow-col md:justify-stretch gap-4 md:gap-8 md:mt-8 mx-8 md:mx-24"
+        class="flex flex-col md:flex-row md:gap-8 lg:gap-16 md:mt-8 mx-8 lg:mx-16 mb-10"
       >
-        <div class="aspect-[10/16]">
+        <div class="aspect-[10/16] w-full lg:w-1/4">
           <img
             class="rounded-md w-full md:max-w-80"
             width="400"
             height="600"
-            :src="details.images.jpg && details.images.jpg.large_image_url"
-            :alt="
-              details.title_english || details.title || details.title_japanese
-            "
+            :src="mainImage"
+            :alt="mainTitle"
           />
         </div>
-        <div class="text-white">
+        <div class="text-white w-full lg:w-3/4">
           <h3 class="text-3xl font-medium mb-3">Overview</h3>
           <p class="text-sm">
-            {{ details.synopsis.split('[')[0] }}
+            {{ mainDetails }}
           </p>
 
           <!-- Information -->
           <div
-            class="grid grid-cols-1 md:grid-cols-2 gap-x-0 md:gap-x-4 gap-y-8 md:gap-y-6 mt-12"
+            class="grid grid-cols-1 lg:grid-cols-2 gap-x-0 md:gap-x-4 gap-y-8 md:gap-y-6 mt-12"
           >
             <div class="flex items-center gap-4">
               <h3 class="text-gray-300 text-sm">Aired</h3>
               <p class="text-sm">
-                {{ details.aired.string.split('to')[0] }}
+                {{ airedDate }}
               </p>
             </div>
             <div
-              v-show="details.genres && details.genres.length"
+              v-if="genres?.length"
               class="flex flex-wrap items-center gap-4"
             >
               <h3 class="text-gray-300 text-sm">Genre</h3>
               <span
-                v-for="genre in details.genres"
+                v-for="genre in genres"
                 :key="genre.name"
                 class="text-sm font-semibold bg-gray-900 rounded-md py-1 px-1.5 hover:bg-gray-900/60 transition-all delay-75 duration-100 ease-in-out"
                 >{{ genre.name }}
@@ -58,12 +56,12 @@
             </div>
 
             <div
-              v-show="details.streaming && details.streaming.length"
+              v-if="streamingLinks?.length"
               class="flex flex-wrap items-center gap-4"
             >
               <h3 class="text-gray-300 text-sm">Streaming</h3>
               <a
-                v-for="stream in details.streaming.slice(0, 3)"
+                v-for="stream in streamingLinks"
                 :key="stream.name"
                 :href="stream.url"
                 target="_blank"
@@ -73,12 +71,12 @@
             </div>
 
             <div
-              v-show="details.themes && details.themes.length"
+              v-if="themes?.length"
               class="flex flex-wrap items-center gap-4"
             >
               <h3 class="text-gray-300 text-sm">Theme</h3>
               <span
-                v-for="theme in details.themes"
+                v-for="theme in themes"
                 :key="theme.name"
                 class="text-sm font-semibold bg-gray-900 rounded-md py-1 px-1.5 hover:bg-gray-900/60 transition-all delay-75 duration-100 ease-in-out"
                 >{{ theme.name }}
@@ -102,12 +100,12 @@
             </div>
 
             <div
-              v-show="details.external && details.external.length"
+              v-if="externalLinks?.length"
               class="flex flex-wrap items-center gap-4"
             >
               <h3 class="text-gray-300 text-sm">Links</h3>
               <a
-                v-for="link in details.external.slice(0, 3)"
+                v-for="link in externalLinks"
                 :key="link.name"
                 :href="link.url"
                 target="_blank"
@@ -118,7 +116,7 @@
           </div>
         </div>
       </div>
-      <DetailsCharacters :characters="characters" />
+      <DetailsCharacters :characters="characterList" />
       <Footer />
     </div>
   </Transition>
@@ -133,15 +131,53 @@ const isOpen = ref(false);
 const currentLink = ref('');
 const header = ref(null);
 
-useHead({
-  title: details.value
-    ? `${details.value.title_english}`
-    : 'Details | Nuxt Anime',
-});
-
 details.value = await fetchDetails(route.params.id);
 
 characters.value = await fetchCharacters(route.params.id);
+
+const mainTitle = computed(() => {
+  return (
+    details.value?.title_english ||
+    details.value?.title ||
+    details.value?.title_japanese
+  );
+});
+
+useHead({
+  title: `${mainTitle.value} | Nuxt Anime`,
+});
+
+const mainImage = computed(() => {
+  return details.value?.images?.jpg?.large_image_url;
+});
+
+const mainDetails = computed(() => {
+  return details.value?.synopsis?.split('[')[0];
+});
+
+const airedDate = computed(() => {
+  return details.value?.aired?.string?.split('to')[0];
+});
+
+const genres = computed(() => {
+  return details.value?.genres;
+});
+
+const streamingLinks = computed(() => {
+  return details.value?.streaming?.slice(0, 3);
+});
+
+const themes = computed(() => {
+  return details.value?.themes;
+});
+
+const externalLinks = computed(() => {
+  return details.value?.external.slice(0, 4);
+});
+
+const characterList = computed(() => {
+  return characters.value?.map((c) => c.character);
+});
 
 const openTrailerDialog = () => {
   header.value.scrollIntoView({ behavior: 'smooth' });

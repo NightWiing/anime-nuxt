@@ -1,17 +1,27 @@
 <template>
   <div class="my-12 md:my-24 ml-8 md:ml-16 group">
-    <h3
-      class="md:text-2xl font-medium md:font-semibold text-gray-400 mb-3 md:mb-6"
-    >
+    <div class="flex gap-2 md:gap-5 items-center mb-3 md:mb-6">
       <slot name="header" />
-    </h3>
+
+      <nuxt-link
+        :to="`/anime/${type}/${filter}`"
+        class="text-cyan-500 hover:text-cyan-500/70"
+      >
+        <span class="flex items-center">
+          See more
+          <IconNext class="size-5" />
+        </span>
+      </nuxt-link>
+    </div>
     <SwiperContent
       v-if="contentList && contentList.length"
       class="!overflow-visible"
       :carousel-items="contentList"
     >
       <template #carousel="{ item }">
-        <ContentCard :item="item" />
+        <nuxt-link :to="`/details/${item.mal_id}`">
+          <ContentCard :item="item" />
+        </nuxt-link>
       </template>
     </SwiperContent>
     <div class="flex justify-center" v-else>
@@ -42,6 +52,6 @@ contentList.value = await fetchTopWatchList({
   filter: props.filter,
   type: props.type,
   page: 1,
-  limit: 25,
+  limit: 15,
 });
 </script>

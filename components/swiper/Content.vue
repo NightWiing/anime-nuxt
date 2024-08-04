@@ -26,9 +26,7 @@
       v-for="(item, index) in carouselItems"
       :key="index"
     >
-      <nuxt-link :to="`/details/${item.mal_id}`">
-        <slot name="carousel" :item="item" />
-      </nuxt-link>
+      <slot name="carousel" :item="item" />
     </SwiperSlide>
     <SwiperControls />
   </Swiper>

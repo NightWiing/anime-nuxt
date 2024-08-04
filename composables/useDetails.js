@@ -1,10 +1,22 @@
 export default function () {
   const url = useRuntimeConfig().public.API_BASE_URL;
-
+  const nuxt = useNuxtApp();
   const fetchDetails = async (id) => {
     try {
-      const { data } = await useFetch(`${url}/anime/${id}/full`);
-      return data.value?.data;
+      const { data, refresh } = await useFetch(`${url}/anime/${id}/full`, {
+        getCachedData: (key) => {
+          const data = nuxt.payload.data[key] || nuxt.static.data[key];
+          if (!data) {
+            return;
+          }
+
+          return data;
+        },
+      });
+
+      if (!data.value) {
+        refresh();
+      } else return data.value?.data;
     } catch (error) {
       console.log(error);
     }
@@ -12,8 +24,23 @@ export default function () {
 
   const fetchCharacters = async (id) => {
     try {
-      const { data } = await useFetch(`${url}/anime/${id}/characters`);
-      return data.value?.data;
+      const { data, refresh } = await useFetch(
+        `${url}/anime/${id}/characters`,
+        {
+          getCachedData: (key) => {
+            const data = nuxt.payload.data[key] || nuxt.static.data[key];
+            if (!data) {
+              return;
+            }
+
+            return data;
+          },
+        }
+      );
+
+      if (!data.value) {
+        refresh();
+      } else return data.value?.data;
     } catch (error) {
       console.log(error);
     }
