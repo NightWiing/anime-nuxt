@@ -1,6 +1,12 @@
 <template>
-  <div class="flex relative min-h-60 md:min-h-96 w-full px-5 md:px-0">
-    <div class="w-full relative md:pl-24 bg-black items-center">
+  <div
+    class="flex relative min-h-52 md:min-h-[480px] bg-[length:100%_100%] bg-no-repeat bg-center"
+    :style="{ 'background-image': `url(${heroItem.cover_image})` }"
+  >
+    <div
+      class="hidden md:block absolute h-full w-full bottom-0 bg-gradient-to-t md:bg-gradient-to-r from-black/90 via-black/80"
+    ></div>
+    <div class="w-full relative md:pl-24 items-center">
       <Transition
         appear
         enter-active-class="transition duration-1000 ease-out"
@@ -12,14 +18,14 @@
       >
         <div
           v-show="heroItem"
-          class="absolute w-full md:w-2/4 bottom-0 md:left-16 top-1/4 z-10 space-y-3"
+          class="absolute bottom-0 w-full md:w-2/4 md:left-16 top-3/4 md:top-1/4 z-10 space-y-3"
         >
           <img
             class="max-h-12 md:max-h-24 transition-transform scale-95 hover:scale-100 delay-75 duration-150"
             :src="heroItem.logo"
             :alt="heroItem.title"
           />
-          <div class="flex items-center gap-2 md:gap-4">
+          <div class="hidden md:flex items-center gap-2 md:gap-4">
             <Ratings :ratings="heroItem.ratings" />
             <span
               class="block size-1 md:size-1.5 bg-gray-400 rounded-full"
@@ -35,24 +41,16 @@
             </label>
           </div>
           <p
-            class="text-white mt-2 md:mt-6 text-xs md:text-base transition-all delay-200 ease-in duration-500"
+            class="hidden md:block text-white mt-2 md:mt-6 text-xs md:text-base transition-all delay-200 ease-in duration-500"
           >
             {{ heroItem.discription }}
           </p>
         </div>
       </Transition>
     </div>
-
-    <div class="absolute right-0 h-full w-full md:w-3/5">
-      <div
-        class="absolute h-full w-full bottom-0 md:-left-1 bg-gradient-to-t md:bg-gradient-to-r from-black via-black/80"
-      ></div>
-      <img
-        class="w-full h-full"
-        :src="heroItem.cover_image"
-        :alt="heroItem.title"
-      />
-    </div>
+    <div
+      class="hidden md:block absolute h-8 w-full bottom-0 bg-gradient-to-t from-black"
+    ></div>
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
-  <div class="my-12 md:my-24 ml-8 md:ml-16 group">
-    <div class="flex gap-2 md:gap-5 items-center mb-3 md:mb-6">
+  <div class="my-12 md:my-18 ml-8 md:ml-16 group">
+    <div class="flex gap-2 md:gap-5 items-center mb-3 md:mb-4">
       <slot name="header" />
 
       <nuxt-link
