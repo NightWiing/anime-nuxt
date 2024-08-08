@@ -2,10 +2,6 @@
   <div>
     <!-- Hero Section -->
     <SwiperHero v-show="$route.name !== 'search'" />
-    <div
-      v-show="$route.name !== 'search'"
-      class="absolute h-20 w-full -left-1 bg-gradient-to-b from-black"
-    ></div>
 
     <!-- airing shows -->
     <AnimeContent filter="airing" type="tv">
