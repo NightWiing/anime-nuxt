@@ -24,8 +24,6 @@
         <BaseHeader3>Popular tv special</BaseHeader3>
       </template>
     </AnimeContent>
-
-    <Footer />
   </div>
 </template>
 

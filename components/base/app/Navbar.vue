@@ -20,11 +20,15 @@
             class="text-white size-10"
             @click="isOpenDrawer = !isOpenDrawer"
           />
-          <MobileDrawer ref="dropdown" v-model="isOpenDrawer" :links="links" />
+          <BaseMobileDropdownMenu
+            ref="dropdown"
+            v-model="isOpenDrawer"
+            :links="links"
+          />
         </div>
       </div>
 
-      <BaseSearchInput></BaseSearchInput>
+      <BaseSearchInput />
     </div>
   </div>
 </template>

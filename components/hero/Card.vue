@@ -26,7 +26,7 @@
             :alt="heroItem.title"
           />
           <div class="hidden md:flex items-center gap-2 md:gap-4">
-            <Ratings :ratings="heroItem.ratings" />
+            <AnimeRatings :ratings="heroItem.ratings" />
             <span
               class="block size-1 md:size-1.5 bg-gray-400 rounded-full"
             ></span>

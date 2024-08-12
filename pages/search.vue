@@ -53,7 +53,7 @@
                 leave-to-class="transform translate-y-8 opacity-0"
               >
                 <nuxt-link :to="`/details/${item.mal_id}`">
-                  <ContentCard :item="item" />
+                  <AnimeCard :item="item" />
                 </nuxt-link>
               </Transition>
             </template>

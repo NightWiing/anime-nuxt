@@ -92,7 +92,7 @@
               >
                 <IconPlay class="size-5" />
               </button>
-              <TrailerDialog
+              <AnimePromoDialog
                 v-model="isOpen"
                 :link="currentLink"
                 @close="resetDialog"

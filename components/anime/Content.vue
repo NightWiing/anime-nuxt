@@ -20,7 +20,7 @@
     >
       <template #carousel="{ item }">
         <nuxt-link :to="`/details/${item.mal_id}`">
-          <ContentCard :item="item" />
+          <AnimeCard :item="item" />
         </nuxt-link>
       </template>
     </SwiperContent>
