@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout :name="$route.name == 'search' ? 'search' : 'default'">
+  <NuxtLayout>
     <NuxtLoadingIndicator />
     <NuxtPage />
   </NuxtLayout>

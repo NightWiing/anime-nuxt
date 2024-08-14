@@ -8,19 +8,7 @@ export default function () {
   const currentPage = ref(1);
   const limit = ref(20);
 
-  const deBounce = (func) => {
-    let timeout;
-
-    return function (...args) {
-      clearTimeout(timeout);
-
-      timeout = setTimeout(() => {
-        func.apply(this, args);
-      }, 300);
-    };
-  };
-
-  const search = async (search) => {
+  const fetchSearchResults = async (search) => {
     try {
       if (!search.length) {
         $reset();
@@ -45,8 +33,6 @@ export default function () {
       isLoading.value = false;
     }
   };
-
-  const fetchSearchResults = deBounce(search);
 
   const $reset = () => {
     isNoResultsFound.value = false;

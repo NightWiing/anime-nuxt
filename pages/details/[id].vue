@@ -8,7 +8,11 @@
     leave-from-class="transform translate-y-0 opacity-100"
     leave-to-class="transform translate-y-8 opacity-0"
   >
-    <div ref="header" v-show="details" class="flex justify-center flex-col">
+    <div
+      ref="header"
+      v-show="details"
+      class="flex justify-center flex-col mt-16"
+    >
       <h1
         class="text-white text-center text-2xl md:text-5xl my-6 font-semibold"
       >

@@ -4,7 +4,7 @@
       <BaseAppNavbar ref="navbar" />
       <slot />
     </div>
-    <BaseAppFooter />
+    <BaseAppFooter v-show="$route.name !== 'search'" />
   </div>
 </template>
 

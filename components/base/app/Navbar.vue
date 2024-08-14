@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fixed top-0 z-10 bg-black md:bg-transparent w-full flex px-2 py-2 md:py-2.5 md:px-5 transition-all delay-100 duration-150 ease-in"
+    class="fixed top-0 z-20 bg-black md:bg-transparent w-full flex px-2 py-2 md:py-2.5 md:px-5 transition-all delay-100 duration-150 ease-in"
     :class="[isSticky ? 'md:bg-black/80 backdrop-blur-xl' : '']"
   >
     <div class="w-full flex justify-between items-center">

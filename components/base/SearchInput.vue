@@ -1,12 +1,15 @@
 <template>
   <div
-    class="flex items-center justify-center bg-black/60 backdrop-blur-lg border rounded-full p-2 cursor-pointer"
+    ref="searchInput"
+    class="flex items-center justify-center bg-black/60 backdrop-blur-lg border border-gray-100 rounded-full p-2 cursor-pointer"
   >
     <input
+      v-model="searchParams"
       class="bg-transparent transition-all delay-100 duration-300 ease-in-out w-0 text-white text-sm focus-visible:outline-0"
-      :class="{ 'w-48 px-1.5': isOpen }"
+      :class="{ 'w-48 px-1.5': isOpenSearch }"
       placeholder="Search"
       type="text"
+      @input="redirectToSearchRouteAndFetchResults"
     />
 
     <IconSearch class="text-white size-6" @click="isOpen = !isOpen" />
@@ -14,5 +17,45 @@
 </template>
 
 <script setup>
+import { useDebounceFn, onClickOutside } from '@vueuse/core';
+
 const isOpen = ref(false);
+const router = useRouter();
+const route = useRoute();
+const searchParams = ref(route.query?.search || '');
+const searchInput = ref(null);
+
+watch(
+  () => route.path,
+  (oldVal, newVal) => {
+    if (oldVal === '/' && newVal === '/search') {
+      $reset();
+    }
+  }
+);
+
+const isOpenSearch = computed(() => isOpen.value || searchParams.value.length);
+
+onClickOutside(searchInput, () => (isOpen.value = false));
+
+const redirectToSearchRouteAndFetchResults = useDebounceFn(
+  ($event) => {
+    if ($event.target.value.trim() === '') {
+      $reset();
+      router.push('/');
+    } else {
+      router.replace({
+        name: 'search',
+        query: { search: $event.target.value },
+      });
+    }
+  },
+  1000,
+  { maxWait: 5000 }
+);
+
+const $reset = () => {
+  searchParams.value = '';
+  isOpen.value = false;
+};
 </script>
