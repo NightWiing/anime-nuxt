@@ -8,11 +8,7 @@
       height="600"
       width="400"
       :alt="character.name"
-      :src="
-        character.images &&
-        character.images.jpg &&
-        character.images.jpg.image_url
-      "
+      :src="imageUrl"
     />
     <label class="text-white text-sm md:text-lg font-medium mt-2 block">{{
       formatCharacterName(character.url)
@@ -26,4 +22,6 @@ defineProps(['character']);
 const formatCharacterName = (name) => {
   return name.split('/').pop().replaceAll('_', ' ');
 };
+
+const imageUrl = computed(() => character.images?.jpg?.image_url);
 </script>

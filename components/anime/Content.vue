@@ -14,7 +14,7 @@
       </nuxt-link>
     </div>
     <SwiperContent
-      v-if="contentList && contentList.length"
+      v-if="contentList?.length"
       class="!overflow-visible"
       :carousel-items="contentList"
     >
