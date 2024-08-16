@@ -4,8 +4,6 @@
 
     <SwiperHero />
 
-    <div class="absolute h-20 w-full -left-1 bg-gradient-to-b from-black"></div>
-
     <!-- popular shows  -->
     <AnimeContent filter="bypopularity" type="tv">
       <template #header>
@@ -26,8 +24,6 @@
         <BaseHeader3>Popular tv special</BaseHeader3>
       </template>
     </AnimeContent>
-
-    <Footer />
   </div>
 </template>
 

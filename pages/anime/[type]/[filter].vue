@@ -1,6 +1,6 @@
 <template>
   <h3
-    class="md:text-2xl font-medium md:font-semibold text-gray-400 px-4 pt-4 md:px-8 md:pt-8"
+    class="md:text-2xl font-medium md:font-semibold text-gray-400 px-4 pt-4 md:px-8 md:pt-8 mt-16"
   >
     {{ title }} {{ page }}
   </h3>
@@ -18,7 +18,7 @@
         leave-to-class="transform translate-y-8 opacity-0"
       >
         <nuxt-link :to="`/details/${item.mal_id}`">
-          <ContentCard :item="item" />
+          <AnimeCard :item="item" />
         </nuxt-link>
       </Transition>
     </template>

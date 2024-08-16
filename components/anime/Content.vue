@@ -1,6 +1,6 @@
 <template>
-  <div class="my-12 md:my-24 ml-8 md:ml-16 group">
-    <div class="flex gap-2 md:gap-5 items-center mb-3 md:mb-6">
+  <div class="my-12 md:my-18 ml-8 md:ml-16 group">
+    <div class="flex gap-2 md:gap-5 items-center mb-3 md:mb-4">
       <slot name="header" />
 
       <nuxt-link
@@ -14,17 +14,17 @@
       </nuxt-link>
     </div>
     <SwiperContent
-      v-if="contentList && contentList.length"
+      v-if="contentList?.length"
       class="!overflow-visible"
       :carousel-items="contentList"
     >
       <template #carousel="{ item }">
         <nuxt-link :to="`/details/${item.mal_id}`">
-          <ContentCard :item="item" />
+          <AnimeCard :item="item" />
         </nuxt-link>
       </template>
     </SwiperContent>
-    <div class="flex justify-center" v-else>
+    <div class="flex justify-center items-center min-h-96" v-else>
       <p class="text-gray-200 text-sm md:text-base">
         No data available or an issue while fetching data try to reload the
         page.

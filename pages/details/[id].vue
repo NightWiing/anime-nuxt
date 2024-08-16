@@ -8,7 +8,11 @@
     leave-from-class="transform translate-y-0 opacity-100"
     leave-to-class="transform translate-y-8 opacity-0"
   >
-    <div ref="header" v-show="details" class="flex justify-center flex-col">
+    <div
+      ref="header"
+      v-show="details"
+      class="flex justify-center flex-col mt-16"
+    >
       <h1
         class="text-white text-center text-2xl md:text-5xl my-6 font-semibold"
       >
@@ -87,12 +91,13 @@
               <h3 class="text-gray-300 text-sm">Trailer</h3>
               <button
                 title="trailer"
-                class="text-white bg-gray-900 hover:bg-gray-900/60 transition-all delay-75 duration-100 ease-in-out p-3 rounded-full flex items-center"
-                @click="openTrailerDialog"
+                class="text-white bg-gray-900 hover:bg-gray-900/60 transition-all delay-75 duration-100 ease-in-out p-2.5 rounded-full flex items-center"
+                @click="openTrailerDialog(details.trailer.embed_url)"
               >
                 <IconPlay class="size-5" />
               </button>
-              <TrailerDialog
+
+              <AnimePromoDialog
                 v-model="isOpen"
                 :link="currentLink"
                 @close="resetDialog"
@@ -116,17 +121,24 @@
           </div>
         </div>
       </div>
+
       <DetailsCharacters :characters="characterList" />
-      <Footer />
+
+      <AnimePromoSection
+        v-if="isVideosExists"
+        :videos="videos"
+        @watch-promo="openTrailerDialog"
+      />
     </div>
   </Transition>
 </template>
 
 <script setup>
-const { fetchDetails, fetchCharacters } = useDetails();
+const { fetchDetails, fetchCharacters, fetchVideos } = useDetails();
 const route = useRoute();
 const details = ref(null);
 const characters = ref([]);
+const videos = ref(null);
 const isOpen = ref(false);
 const currentLink = ref('');
 const header = ref(null);
@@ -134,6 +146,8 @@ const header = ref(null);
 details.value = await fetchDetails(route.params.id);
 
 characters.value = await fetchCharacters(route.params.id);
+
+videos.value = await fetchVideos(route.params.id);
 
 const mainTitle = computed(() => {
   return (
@@ -179,17 +193,21 @@ const characterList = computed(() => {
   return characters.value?.map((c) => c.character);
 });
 
-const openTrailerDialog = () => {
+const isVideosExists = computed(() => {
+  return videos.value?.promo?.length || videos.value?.music_videos?.length;
+});
+
+const openTrailerDialog = (url) => {
   header.value.scrollIntoView({ behavior: 'smooth' });
-  currentLink.value = details.value.trailer.embed_url;
+  currentLink.value = url;
   isOpen.value = true;
-  const myElement = document.getElementById('default');
+  const myElement = document.getElementsByTagName('body')[0];
   myElement.style.overflowY = 'hidden';
 };
 
 const resetDialog = () => {
   currentLink.value = '';
-  const myElement = document.getElementById('default');
+  const myElement = document.getElementsByTagName('body')[0];
   myElement.style.overflowY = 'auto';
 };
 </script>

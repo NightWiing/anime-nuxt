@@ -16,7 +16,9 @@ export default function () {
 
       if (!data.value) {
         refresh();
-      } else return data.value?.data;
+      } else {
+        return data.value?.data;
+      }
     } catch (error) {
       console.log(error);
     }
@@ -40,11 +42,39 @@ export default function () {
 
       if (!data.value) {
         refresh();
-      } else return data.value?.data;
+      } else {
+        return data.value?.data;
+      }
     } catch (error) {
       console.log(error);
     }
   };
 
-  return { fetchDetails, fetchCharacters };
+  const fetchVideos = async (id) => {
+    try {
+      const { data, refresh } = await useFetch(`${url}/anime/${id}/videos`, {
+        getCachedData: (key) => {
+          const data = nuxt.payload.data[key] || nuxt.static.data[key];
+          if (!data) {
+            return;
+          }
+
+          return data;
+        },
+      });
+
+      if (!data.value) {
+        refresh();
+      } else {
+        return {
+          promo: data.value?.data?.promo,
+          music_videos: data.value?.data?.music_videos,
+        };
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return { fetchDetails, fetchCharacters, fetchVideos };
 }

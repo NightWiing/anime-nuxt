@@ -7,12 +7,19 @@
       loading="eager"
       height="600"
       width="400"
-      :alt="item.title_english || item.title_japanese || item.title"
-      :src="item.images && item.images.jpg && item.images.jpg.large_image_url"
+      :alt="imageAlt"
+      :src="imageUrl"
     />
   </div>
 </template>
 
 <script setup>
-defineProps(['item']);
+const props = defineProps(['item']);
+
+const imageAlt = computed(
+  () =>
+    props.item.title_english || props.item.title_japanese || props.item.title
+);
+
+const imageUrl = computed(() => props.item.images?.jpg?.large_image_url);
 </script>

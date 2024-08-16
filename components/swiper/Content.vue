@@ -14,7 +14,7 @@
         slidesPerView: 4,
       },
       1024: {
-        slidesPerView: 5.5,
+        slidesPerView: 4.5,
       },
     }"
     :space-between="10"
