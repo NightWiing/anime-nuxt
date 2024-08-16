@@ -17,11 +17,11 @@
 </template>
 
 <script setup>
-defineProps(['character']);
+const props = defineProps(['character']);
 
 const formatCharacterName = (name) => {
   return name.split('/').pop().replaceAll('_', ' ');
 };
 
-const imageUrl = computed(() => character.images?.jpg?.image_url);
+const imageUrl = computed(() => props.character.images?.jpg?.image_url);
 </script>

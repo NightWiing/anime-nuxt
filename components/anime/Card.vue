@@ -14,11 +14,12 @@
 </template>
 
 <script setup>
-defineProps(['item']);
+const props = defineProps(['item']);
 
 const imageAlt = computed(
-  () => item.title_english || item.title_japanese || item.title
+  () =>
+    props.item.title_english || props.item.title_japanese || props.item.title
 );
 
-const imageUrl = computed(() => item.images?.jpg?.large_image_url);
+const imageUrl = computed(() => props.item.images?.jpg?.large_image_url);
 </script>

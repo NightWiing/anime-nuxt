@@ -1,6 +1,6 @@
 <template>
-  <div class="text-white ml-8 md:ml-16 my-8 md:my-16 group">
-    <h3 class="text-2xl font-semibold text-gray-400 mb-6">Characters</h3>
+  <div class="text-white ml-8 md:ml-16 my-6 md:my-12 group">
+    <BaseHeader3 class="mb-6">Characters</BaseHeader3>
 
     <SwiperContent class="!overflow-visible" :carousel-items="characters">
       <template #carousel="{ item }">

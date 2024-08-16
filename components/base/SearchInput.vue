@@ -1,7 +1,7 @@
 <template>
   <div
     ref="searchInput"
-    class="flex items-center justify-center bg-black/60 backdrop-blur-lg border border-gray-100 rounded-full p-2 cursor-pointer"
+    class="flex items-center justify-center bg-black/60 backdrop-blur-lg border-2 border-white/50 rounded-full p-1 md:p-2 cursor-pointer"
   >
     <input
       v-model="searchParams"
@@ -12,7 +12,7 @@
       @input="redirectToSearchRouteAndFetchResults"
     />
 
-    <IconSearch class="text-white size-6" @click="isOpen = !isOpen" />
+    <IconSearch class="text-white size-5 md:size-6" @click="isOpen = !isOpen" />
   </div>
 </template>
 

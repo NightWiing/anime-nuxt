@@ -1,6 +1,6 @@
 <template>
   <h3
-    class="md:text-2xl font-medium md:font-semibold text-gray-400 px-4 pt-4 md:px-8 md:pt-8"
+    class="md:text-2xl font-medium md:font-semibold text-gray-400 px-4 pt-4 md:px-8 md:pt-8 mt-16"
   >
     {{ title }} {{ page }}
   </h3>

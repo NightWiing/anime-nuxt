@@ -1,7 +1,7 @@
 <template>
   <div
     v-show="isOpen"
-    class="backdrop-blur-sm bg-black/30 z-10 h-full w-full absolute inset-0"
+    class="backdrop-blur-sm bg-black/30 z-20 h-full w-full fixed inset-0"
   >
     <button
       title="trailer"
@@ -15,8 +15,8 @@
     >
       <iframe
         v-if="link"
-        width="100%"
-        height="100%"
+        width="1200"
+        height="600"
         :src="link"
         title="YouTube video player"
         frameborder="0"

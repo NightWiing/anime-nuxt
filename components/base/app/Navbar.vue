@@ -1,7 +1,7 @@
 <template>
   <div
     class="fixed top-0 z-20 bg-black md:bg-transparent w-full flex px-2 py-2 md:py-2.5 md:px-5 transition-all delay-100 duration-150 ease-in"
-    :class="[isSticky ? 'md:bg-black/80 backdrop-blur-xl' : '']"
+    :class="[isSticky ? 'md:bg-black/90 backdrop-blur-xl' : '']"
   >
     <div class="w-full flex justify-between items-center">
       <div class="flex md:gap-16 w-full">
@@ -15,16 +15,12 @@
             {{ link.label }}
           </nuxt-link>
         </template>
-        <div class="md:hidden">
+        <div ref="dropdown" class="md:hidden">
           <IconHamburger
-            class="text-white size-10"
-            @click="isOpenDrawer = !isOpenDrawer"
+            class="text-white size-8 md:size-10"
+            @click="toggleMenu"
           />
-          <BaseMobileDropdownMenu
-            ref="dropdown"
-            v-model="isOpenDrawer"
-            :links="links"
-          />
+          <BaseMobileDropdownMenu v-model="isOpenDrawer" :links="links" />
         </div>
       </div>
 
@@ -54,6 +50,10 @@ const links = [
 ];
 
 onClickOutside(dropdown, () => (isOpenDrawer.value = false));
+
+const toggleMenu = () => {
+  isOpenDrawer.value = !isOpenDrawer.value;
+};
 
 defineExpose({
   isSticky,

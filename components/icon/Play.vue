@@ -7,13 +7,13 @@
   >
     <path
       fill="currentColor"
-      d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2m-8 12.5v-9l6 4.5z"
+      d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82"
     ></path>
   </svg>
 </template>
 
 <script>
 export default {
-  name: 'IcBaselineVideoLibrary',
+  name: 'IcRoundPlayArrow',
 };
 </script>
