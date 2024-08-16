@@ -16,9 +16,7 @@ export default defineNuxtConfig({
     },
   },
 
-  image: {
-    // dir: 'public/images',
-  },
+  image: {},
 
   postcss: {
     plugins: {

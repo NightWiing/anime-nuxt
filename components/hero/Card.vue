@@ -25,6 +25,7 @@
             :src="heroItem.logo"
             :alt="heroItem.title"
             height="48 md:96"
+            format="avif"
           />
           <div class="hidden md:flex items-center gap-2 md:gap-4">
             <AnimeRatings :ratings="heroItem.ratings" />
@@ -65,7 +66,7 @@ const props = defineProps({
 const img = useImage();
 
 const backgroundStyles = computed(() => {
-  const imgUrl = img(props.heroItem.cover_image);
+  const imgUrl = img(props.heroItem.cover_image, { format: 'avif' });
   return { backgroundImage: `url('${imgUrl}')` };
 });
 </script>
