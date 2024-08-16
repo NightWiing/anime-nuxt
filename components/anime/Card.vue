@@ -21,5 +21,5 @@ const imageAlt = computed(
     props.item.title_english || props.item.title_japanese || props.item.title
 );
 
-const imageUrl = computed(() => props.item.images?.jpg?.large_image_url);
+const imageUrl = computed(() => props.item.images?.webp?.large_image_url);
 </script>

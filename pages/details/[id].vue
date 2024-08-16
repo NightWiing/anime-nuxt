@@ -162,7 +162,7 @@ useHead({
 });
 
 const mainImage = computed(() => {
-  return details.value?.images?.jpg?.large_image_url;
+  return details.value?.images?.webp?.large_image_url;
 });
 
 const mainDetails = computed(() => {

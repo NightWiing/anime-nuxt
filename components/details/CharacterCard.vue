@@ -23,5 +23,5 @@ const formatCharacterName = (name) => {
   return name.split('/').pop().replaceAll('_', ' ');
 };
 
-const imageUrl = computed(() => props.character.images?.jpg?.image_url);
+const imageUrl = computed(() => props.character.images?.webp?.image_url);
 </script>
