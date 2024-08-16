@@ -17,8 +17,7 @@ export default defineNuxtConfig({
   },
 
   image: {
-    dir: 'public/images',
-    provider: 'ipx',
+    // dir: 'public/images',
   },
 
   postcss: {

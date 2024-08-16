@@ -3,8 +3,8 @@
     {
       "title": "Dragon ball z",
       "discription": "Dragon Ball Z picks up five years after the end of the Dragon Ball series, with Son Goku now a young adult and father to his son, Gohan.",
-      "cover_image": "/dragon-ball.jpg",
-      "logo": "/dragon-ball.png",
+      "cover_image": "/images/dragon-ball.jpg",
+      "logo": "/images/dragon-ball.png",
       "aired_date": "26th April, 1989",
       "total_season": 9,
       "ratings": 4.5
@@ -12,8 +12,8 @@
     {
       "title": "Pokemon",
       "discription": "The Pokémon franchise is set in a world in which humans coexist with creatures known as Pokémon. The original full name of the franchise is Pocket Monsters, which has been commonly abbreviated to Pokemon since its launch",
-      "cover_image": "/pokemon.jpg",
-      "logo": "/pokemon.png",
+      "cover_image": "/images/pokemon.jpg",
+      "logo": "/images/pokemon.png",
       "aired_date": "26th April, 1989",
       "total_season": 25,
       "ratings": 4
@@ -21,8 +21,8 @@
     {
       "title": "One Piece",
       "discription": "The world of One Piece is populated by humans and other races such as dwarves (more akin to faeries in size), giants, merfolk, fish-men, long-limbed tribes, long-necked people known as the Snakeneck Tribe, and animal people known as Minks.",
-      "cover_image": "/one-piece.jpg",
-      "logo": "/one-piece.png",
+      "cover_image": "/images/one-piece.jpg",
+      "logo": "/images/one-piece.png",
       "aired_date": "20th October, 1999",
       "total_season": 20,
       "ratings": 3.5
