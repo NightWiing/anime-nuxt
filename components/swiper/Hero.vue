@@ -1,8 +1,9 @@
 <template>
   <Swiper
-    :modules="[SwiperPagination, SwiperAutoplay]"
+    :modules="[SwiperPagination, SwiperEffectFade]"
+    :effect="`fade`"
     :autoplay="{
-      delay: 5000,
+      delay: 10000,
     }"
     :slides-per-view="1"
     :loop="true"

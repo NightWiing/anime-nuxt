@@ -3,7 +3,12 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ['~/assets/css/main.css', 'swiper/css', 'swiper/css/pagination'],
 
-  modules: ['@nuxtjs/google-fonts', 'nuxt-swiper', '@vueuse/nuxt'],
+  modules: [
+    '@nuxtjs/google-fonts',
+    'nuxt-swiper',
+    '@vueuse/nuxt',
+    '@nuxt/image',
+  ],
 
   runtimeConfig: {
     public: {
@@ -11,8 +16,8 @@ export default defineNuxtConfig({
     },
   },
 
-  app: {
-    // pageTransition: { name: 'page', mode: 'out-in' },
+  image: {
+    dir: 'public/images',
   },
 
   postcss: {
@@ -21,6 +26,7 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+
   googleFonts: {
     families: {
       'Reddit Sans': {
@@ -28,7 +34,10 @@ export default defineNuxtConfig({
       },
     },
   },
+
   alias: {
     pinia: '/node_modules/@pinia/nuxt/node_modules/pinia/dist/pinia.mjs',
   },
+
+  compatibilityDate: '2024-08-16',
 });
