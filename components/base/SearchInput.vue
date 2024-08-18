@@ -1,9 +1,10 @@
 <template>
   <div
-    ref="searchInput"
+    ref="searchInputWrapper"
     class="flex items-center justify-center bg-black/60 backdrop-blur-lg border-2 border-white/50 rounded-full p-1 md:p-2 cursor-pointer"
   >
     <input
+      ref="searchInput"
       v-model="searchParams"
       class="bg-transparent transition-all delay-100 duration-300 ease-in-out w-0 text-white text-sm focus-visible:outline-0"
       :class="{ 'w-48 px-1.5': isOpenSearch }"
@@ -12,7 +13,7 @@
       @input="redirectToSearchRouteAndFetchResults"
     />
 
-    <IconSearch class="text-white size-5 md:size-6" @click="isOpen = !isOpen" />
+    <IconSearch class="text-white size-5 md:size-6" @click="openSearchInput" />
   </div>
 </template>
 
@@ -23,6 +24,7 @@ const isOpen = ref(false);
 const router = useRouter();
 const route = useRoute();
 const searchParams = ref(route.query?.search || '');
+const searchInputWrapper = ref(null);
 const searchInput = ref(null);
 
 watch(
@@ -36,7 +38,7 @@ watch(
 
 const isOpenSearch = computed(() => isOpen.value || searchParams.value.length);
 
-onClickOutside(searchInput, () => (isOpen.value = false));
+onClickOutside(searchInputWrapper, () => (isOpen.value = false));
 
 const redirectToSearchRouteAndFetchResults = useDebounceFn(
   ($event) => {
@@ -57,5 +59,11 @@ const redirectToSearchRouteAndFetchResults = useDebounceFn(
 const $reset = () => {
   searchParams.value = '';
   isOpen.value = false;
+};
+
+const openSearchInput = () => {
+  isOpen.value = !isOpen.value;
+  if (isOpen.value) searchInput.value.focus();
+  else searchInput.value.blur();
 };
 </script>

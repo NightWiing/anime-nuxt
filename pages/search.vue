@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-16">
+  <div ref="search" class="mt-16">
     <div v-if="isLoading" class="flex justify-center items-center h-screen">
       <BaseLoader class="size-24" fill="#06b6d4" />
     </div>
@@ -44,22 +44,11 @@
       </template>
     </template>
 
-    <div
-      v-if="
-        paginationDetails &&
-        paginationDetails.has_next_page &&
-        $route.query.search.length
-      "
-      class="flex justify-center mt-4 mb-24 md:mb-8"
-    >
-      <button
-        class="bg-cyan-500 cursor-pointer py-2 px-4 flex items-center text-sm text-white rounded-full"
-        @click="loadMore"
-      >
-        <label class="cursor-pointer">Load More</label>
-        <BaseSpinnerLoader v-if="isLoadingMore" class="size-4 ml-2" />
-      </button>
-    </div>
+    <BaseInfiniteLoading
+      v-if="isNextPageAvailable"
+      :is-loading="isLoadingMore"
+      @load-more="loadMore"
+    />
   </div>
 </template>
 
@@ -92,6 +81,10 @@ onBeforeMount(() => {
   if (route.query?.search) fetchSearchResults(route.query?.search);
   else router.push('/');
 });
+
+const isNextPageAvailable = computed(
+  () => paginationDetails.value?.has_next_page && route.query.search?.length
+);
 
 const loadMore = async () => {
   isLoadingMore.value = true;

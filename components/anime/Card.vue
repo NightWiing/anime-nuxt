@@ -4,7 +4,7 @@
   >
     <img
       class="rounded-md w-full h-full"
-      loading="eager"
+      loading="lazy"
       height="600"
       width="400"
       :alt="imageAlt"

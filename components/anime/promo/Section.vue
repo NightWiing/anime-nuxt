@@ -13,6 +13,7 @@
           :src="promo.trailer.images?.medium_image_url"
           :alt="promo.title"
           class="rounded-md"
+          loading="lazy"
         />
         <button
           class="absolute text-white border-2 border-white/30 bg-black/60 backdrop-blur-sm group-hover:bg-black/30 transition-all delay-75 duration-100 ease-in-out p-2.5 rounded-full flex items-center size-10"
@@ -40,6 +41,7 @@
           :src="music.video.images?.medium_image_url"
           :alt="music.title"
           class="rounded-md"
+          loading="lazy"
         />
         <button
           class="absolute text-white border-2 border-white/30 bg-black/60 backdrop-blur-sm group-hover:bg-black/30 transition-all delay-75 duration-100 ease-in-out p-2.5 rounded-full flex items-center size-10"

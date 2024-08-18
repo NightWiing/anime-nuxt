@@ -24,7 +24,7 @@
         </nuxt-link>
       </template>
     </SwiperContent>
-    <div class="flex justify-center items-center min-h-96" v-else>
+    <div class="flex justify-center items-center min-h-40 md:min-h-96" v-else>
       <p class="text-gray-200 text-sm md:text-base">
         No data available or an issue while fetching data try to reload the
         page.

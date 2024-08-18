@@ -4,11 +4,11 @@
   >
     <img
       class="rounded-md w-full h-full"
-      loading="eager"
       height="600"
       width="400"
       :alt="character.name"
       :src="imageUrl"
+      loading="lazy"
     />
     <label class="text-white text-sm md:text-lg font-medium mt-2 block">{{
       formatCharacterName(character.url)

@@ -1,7 +1,7 @@
 <template>
   <div
     class="flex relative min-h-52 md:min-h-[480px] bg-[length:100%_100%] bg-no-repeat bg-center"
-    :style="backgroundStyles"
+    :style="{ 'background-image': `url('${heroItem.cover_image}')` }"
   >
     <div
       class="hidden md:block absolute h-full w-full bottom-0 bg-gradient-to-t md:bg-gradient-to-r from-black/90 via-black/80"
@@ -20,12 +20,11 @@
           v-show="heroItem"
           class="absolute bottom-0 w-full md:w-2/4 md:left-16 top-3/4 md:top-1/4 z-10 space-y-3"
         >
-          <NuxtImg
+          <img
             class="max-h-12 md:max-h-24 transition-transform scale-95 hover:scale-100 delay-75 duration-150"
             :src="heroItem.logo"
             :alt="heroItem.title"
-            height="48 md:96"
-            format="avif"
+            loading="lazy"
           />
           <div class="hidden md:flex items-center gap-2 md:gap-4">
             <AnimeRatings :ratings="heroItem.ratings" />
@@ -61,12 +60,5 @@ const props = defineProps({
   heroItem: {
     type: Object,
   },
-});
-
-const img = useImage();
-
-const backgroundStyles = computed(() => {
-  const imgUrl = img(props.heroItem.cover_image, { format: 'avif' });
-  return { backgroundImage: `url('${imgUrl}')` };
 });
 </script>

@@ -1,15 +1,6 @@
 {
   "heroItems": [
     {
-      "title": "Dragon ball z",
-      "discription": "Dragon Ball Z picks up five years after the end of the Dragon Ball series, with Son Goku now a young adult and father to his son, Gohan.",
-      "cover_image": "/images/dragon-ball.jpg",
-      "logo": "/images/dragon-ball.png",
-      "aired_date": "26th April, 1989",
-      "total_season": 9,
-      "ratings": 4.5
-    },
-    {
       "title": "Pokemon",
       "discription": "The Pokémon franchise is set in a world in which humans coexist with creatures known as Pokémon. The original full name of the franchise is Pocket Monsters, which has been commonly abbreviated to Pokemon since its launch",
       "cover_image": "/images/pokemon.jpg",
@@ -17,6 +8,15 @@
       "aired_date": "26th April, 1989",
       "total_season": 25,
       "ratings": 4
+    },
+    {
+      "title": "Dragon ball z",
+      "discription": "Dragon Ball Z picks up five years after the end of the Dragon Ball series, with Son Goku now a young adult and father to his son, Gohan.",
+      "cover_image": "/images/dragon-ball.jpg",
+      "logo": "/images/dragon-ball.png",
+      "aired_date": "26th April, 1989",
+      "total_season": 9,
+      "ratings": 4.5
     },
     {
       "title": "One Piece",

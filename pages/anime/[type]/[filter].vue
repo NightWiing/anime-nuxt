@@ -23,20 +23,12 @@
       </Transition>
     </template>
   </div>
-  <div
-    v-if="
-      contentList.length && paginationDetails && paginationDetails.has_next_page
-    "
-    class="flex justify-center mt-4 mb-24 md:mb-8"
-  >
-    <button
-      class="bg-cyan-500 cursor-pointer py-2 px-4 flex items-center text-sm text-white rounded-full"
-      @click="loadMore"
-    >
-      <label class="cursor-pointer">Load More</label>
-      <BaseSpinnerLoader v-if="isLoadingMore" class="size-4 ml-2" />
-    </button>
-  </div>
+
+  <BaseInfiniteLoading
+    v-if="isNextPageAvailable"
+    :is-loading="isLoadingMore"
+    @load-more="loadMore"
+  />
 </template>
 
 <script setup>
@@ -56,6 +48,10 @@ const {
 const isLoadingMore = ref(false);
 
 await fetchSeeMoreList();
+
+const isNextPageAvailable = computed(
+  () => paginationDetails.value?.has_next_page
+);
 
 const loadMore = async () => {
   isLoadingMore.value = true;

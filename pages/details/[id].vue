@@ -28,6 +28,7 @@
             height="600"
             :src="mainImage"
             :alt="mainTitle"
+            loading="lazy"
           />
         </div>
         <div class="text-white w-full lg:w-3/4">
