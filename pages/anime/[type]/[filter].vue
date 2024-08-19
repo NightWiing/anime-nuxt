@@ -5,7 +5,7 @@
     {{ title }} {{ page }}
   </h3>
   <div
-    class="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-2 gap-y-3 md:gap-y-6 p-4 md:p-8 transition-all duration-500"
+    class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-x-2 gap-y-3 md:gap-y-6 p-4 md:p-8 transition-all duration-500"
   >
     <template v-for="(item, index) in contentList" :key="index">
       <Transition

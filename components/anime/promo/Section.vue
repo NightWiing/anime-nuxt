@@ -2,7 +2,10 @@
   <div class="text-white mx-8 md:mx-16 my-6 md:my-12">
     <BaseHeader3 class="mb-6">Promos</BaseHeader3>
 
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+    <div
+      v-if="videos.promo?.length"
+      class="grid grid-cols-1 md:grid-cols-4 gap-4"
+    >
       <div
         v-for="(promo, index) in videos.promo"
         :key="index"

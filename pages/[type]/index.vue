@@ -1,10 +1,9 @@
 <template>
-  <div class="relative">
+  <div>
     <!-- Hero Section -->
-
     <SwiperHero />
 
-    <template v-for="(query, index) in List.home" :key="index">
+    <template v-for="(query, index) in listQuery" :key="index">
       <AnimeContent :filter="query.filter" :type="query.type">
         <template #header>
           <BaseHeader3>{{ query.title }}</BaseHeader3>
@@ -17,8 +16,16 @@
 <script setup>
 import List from '@/static/list.json';
 
+const route = useRoute();
+
 useHead({
-  title: 'Home | Nuxt Anime',
-  meta: [{ name: 'description', content: 'Anime list' }],
+  title: `Anime ${
+    route.params.type == 'movie' ? 'movies' : 'shows'
+  } | Nuxt Anime`,
+  meta: [{ name: 'description', content: 'Top movies' }],
+});
+
+const listQuery = computed(() => {
+  return List[route.params.type];
 });
 </script>

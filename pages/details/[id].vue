@@ -19,7 +19,7 @@
         {{ mainTitle }}
       </h1>
       <div
-        class="flex flex-col md:flex-row md:gap-8 lg:gap-16 md:mt-8 mx-8 lg:mx-16 mb-10"
+        class="flex flex-col md:flex-row md:gap-8 lg:gap-16 md:mt-8 mx-8 lg:mx-16"
       >
         <div class="aspect-[10/16] w-full lg:w-1/4">
           <img
@@ -175,7 +175,7 @@ const airedDate = computed(() => {
 });
 
 const genres = computed(() => {
-  return details.value?.genres;
+  return details.value?.genres?.splice(0, 3);
 });
 
 const streamingLinks = computed(() => {

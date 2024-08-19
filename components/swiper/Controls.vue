@@ -1,14 +1,14 @@
 <template>
   <button
     v-show="isNextSlide"
-    class="text-white bg-black/60 absolute right-0 top-1/2 -translate-y-1/2 z-10 h-48 px-2.5 rounded-l-md group-hover:opacity-100 opacity-0 transition-opacity ease-in"
+    class="text-white bg-black/60 absolute right-0 top-1/2 -translate-y-2/3 z-10 h-48 px-2.5 rounded-l-md group-hover:opacity-100 opacity-0 transition-opacity ease-in"
     @click="swiper.slideNext()"
   >
     <IconNext class="size-8 text-white" />
   </button>
   <button
     v-show="isPrevSlide"
-    class="text-white bg-black/60 absolute -left-16 top-1/2 -translate-y-1/2 z-10 h-48 px-2.5 rounded-r-md group-hover:opacity-100 opacity-0 transition-opacity ease-in"
+    class="text-white bg-black/60 absolute -left-16 top-1/2 -translate-y-2/3 z-10 h-48 px-2.5 rounded-r-md group-hover:opacity-100 opacity-0 transition-opacity ease-in"
     @click="swiper.slidePrev()"
   >
     <IconPrevious class="size-8 text-white" />

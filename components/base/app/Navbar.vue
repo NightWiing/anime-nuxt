@@ -1,7 +1,7 @@
 <template>
   <div
     class="fixed top-0 z-20 bg-black md:bg-transparent w-full flex px-4 py-2 md:py-2.5 md:px-16 transition-all delay-100 duration-150 ease-in"
-    :class="[isSticky ? 'md:bg-black/90 backdrop-blur-xl' : '']"
+    :class="[isSticky ? 'md:bg-gray-950/90 backdrop-blur-xl' : '']"
   >
     <div class="w-full flex justify-between items-center">
       <div class="flex md:gap-16 w-full">
@@ -9,7 +9,7 @@
           <nuxt-link
             :title="link.label"
             activeClass="!text-cyan-500"
-            class="text-white hover:text-cyan-200 hidden md:inline"
+            class="text-white hover:text-cyan-300 hidden md:inline"
             :to="link.path"
           >
             {{ link.label }}
@@ -41,11 +41,11 @@ const links = [
   },
   {
     label: 'Shows',
-    path: '/shows',
+    path: '/show',
   },
   {
     label: 'Movies',
-    path: '/movies',
+    path: '/movie',
   },
 ];
 

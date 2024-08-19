@@ -1,0 +1,55 @@
+{
+  "home": [
+    {
+      "filter": "bypopularity",
+      "type": "tv",
+      "title": "Popular shows"
+    },
+    {
+      "filter": "bypopularity",
+      "type": "movie",
+      "title": "Popular movies"
+    },
+    {
+      "filter": "bypopularity",
+      "type": "tv_special",
+      "title": "Popular tv special"
+    }
+  ],
+
+  "movie": [
+    {
+      "filter": "airing",
+      "type": "movie",
+      "title": "Airing movies"
+    },
+    {
+      "filter": "bypopularity",
+      "type": "movie",
+      "title": "Popular movies"
+    },
+    {
+      "filter": "upcoming",
+      "type": "movie",
+      "title": "Upcoming movies"
+    }
+  ],
+
+  "show": [
+    {
+      "filter": "airing",
+      "type": "tv",
+      "title": "Airing shows"
+    },
+    {
+      "filter": "bypopularity",
+      "type": "tv",
+      "title": "Popular shows"
+    },
+    {
+      "filter": "upcoming",
+      "type": "tv",
+      "title": "Upcoming shows"
+    }
+  ]
+}

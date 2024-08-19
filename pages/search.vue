@@ -23,7 +23,7 @@
           </p>
         </div>
         <div
-          class="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-2 gap-y-3 md:gap-y-6 px-2 py-2 md:py-2.5 md:px-5 transition-all duration-500"
+          class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-x-2 gap-y-3 md:gap-y-6 px-2 py-2 md:py-2.5 md:px-5 transition-all duration-500"
         >
           <template v-for="(item, index) in searchResults" :key="index">
             <Transition

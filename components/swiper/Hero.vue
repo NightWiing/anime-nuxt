@@ -15,5 +15,5 @@
 </template>
 
 <script setup>
-import HeroData from '@/static/data.json';
+import HeroData from '@/static/hero-items.json';
 </script>
