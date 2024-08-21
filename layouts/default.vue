@@ -18,5 +18,11 @@ onMounted(() => {
       navbar.value.isSticky = false;
     }
   };
+
+  if (window.scrollY > 10) {
+    navbar.value.isSticky = true;
+  } else {
+    navbar.value.isSticky = false;
+  }
 });
 </script>

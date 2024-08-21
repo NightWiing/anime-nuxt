@@ -23,7 +23,7 @@
       >
         <div class="aspect-[10/16] w-full lg:w-1/4">
           <img
-            class="rounded-md w-full md:max-w-80"
+            class="rounded-sm w-full md:max-w-80"
             width="400"
             height="600"
             :src="mainImage"
