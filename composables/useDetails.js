@@ -43,7 +43,7 @@ export default function () {
       if (!data.value) {
         refresh();
       } else {
-        return data.value?.data;
+        return data.value?.data.slice(0, 25);
       }
     } catch (error) {
       console.log(error);

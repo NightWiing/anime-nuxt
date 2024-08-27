@@ -1,7 +1,7 @@
 <template>
-  <div class="aspect-[6/9] rounded-sm relative overflow-hidden group/card">
+  <div class="aspect-[6/9] rounded-md relative overflow-hidden group/card">
     <img
-      class="rounded-sm absolute h-full group-hover/card:transition-transform ease-in-out group-hover/card:-translate-y-1 group-hover/card:z-10 group-hover/card:scale-[1.01] delay-100 duration-300"
+      class="absolute h-full group-hover/card:transition-transform ease-in-out group-hover/card:-translate-y-1 group-hover/card:z-10 group-hover/card:scale-[1.01] delay-100 duration-300"
       loading="lazy"
       height="600"
       width="400"

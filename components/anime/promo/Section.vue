@@ -1,6 +1,6 @@
 <template>
   <div class="text-white mx-8 md:mx-16 my-6 md:my-12">
-    <BaseHeader3 class="mb-6">Promos</BaseHeader3>
+    <BaseHeader3 class="mb-4">Promos</BaseHeader3>
 
     <div
       v-if="videos.promo?.length"
@@ -31,7 +31,7 @@
     v-if="videos.music_videos?.length"
     class="text-white mx-8 md:mx-16 my-6 md:my-12"
   >
-    <BaseHeader3 class="mb-6">Music Videos</BaseHeader3>
+    <BaseHeader3 class="mb-4">Music Videos</BaseHeader3>
 
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
       <div

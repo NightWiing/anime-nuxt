@@ -1,18 +1,19 @@
 <template>
   <div
-    class="aspect-[6/9] rounded-md relative hover:transition-transform ease-in-out hover:-translate-y-1 hover:z-10 hover:scale-105 delay-100 duration-300"
+    class="aspect-[6/9] relative hover:transition-transform ease-in-out hover:-translate-y-1 hover:z-10 hover:scale-105 delay-100 duration-300"
   >
     <img
-      class="rounded-sm w-full h-full"
+      class="w-full h-full rounded-md"
       height="600"
       width="400"
       :alt="character.name"
       :src="imageUrl"
       loading="lazy"
     />
-    <label class="text-white text-sm md:text-lg font-medium mt-2 block">{{
-      formatCharacterName(character.url)
-    }}</label>
+
+    <label class="text-white text-sm md:text-lg font-medium mt-2 block">
+      {{ formatCharacterName(character.url) }}
+    </label>
   </div>
 </template>
 
